@@ -1,7 +1,14 @@
+using System.Collections.Generic;
+
 namespace OrderTracker.Models
 {
-  class OrderTracker
+  class Order
   {
+
+    Order()
+    {
+
+    }
 
   }
 

@@ -1,4 +1,36 @@
 @{
   Layout = "_layout";
 }
-<h2>Venders</h2>
+<h2 class="text-center">Venders Home</h2>
+<div class="text-center">
+  <a href="/venders/new" class="text-center"><button class="btn btn-lg btn-info">Add Vender</button></a>
+</div>
+
+@if (Model.Count > 0)
+{
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="card-columns">
+
+      @foreach (var vender in Model)
+      {
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="http://source.unsplash.com/200x100/?@vender.VenderName." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">@vender.VenderName</h5>
+            <p class="card-text">@vender.Description</p>
+            <p>Address : @vender.Address</p>
+            <a href="/vender/@vender.Id" class="btn btn-primary">Details</a>
+            <a href="#" class="btn btn-info">Add Order</a>
+          </div>
+          </div>
+
+      }
+      </div>
+    </div>
+  </div>
+}
+else 
+{
+  <p>Add a vender</p>
+}

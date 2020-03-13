@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace OrderTracker.Models
 {
-  class Vender
+  public class Vender
   {
     public static int IdCounter = 0;
     private static List<Vender> _vendersList = new List<Vender>(5);
@@ -13,7 +13,7 @@ namespace OrderTracker.Models
 
     public List<Order> OrdersList { get; set; }
 
-    Vender(string name, string address, string decription)
+    public Vender(string name, string address, string decription)
     {
       VenderName = name;
       Address = address;

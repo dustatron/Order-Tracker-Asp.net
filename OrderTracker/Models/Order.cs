@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace OrderTracker.Models
 {
-  class Order
+  public class Order
   {
     public static List<Order> MasterOrderList { get; set; } = new List<Order>(5);
     public int IdCounter = 0;
@@ -16,7 +16,7 @@ namespace OrderTracker.Models
     public string VenderName { get; set; }
 
 
-    Order(string productName, int quantity, string deliverBy, int venderId, string venderName)
+    public Order(string productName, int quantity, string deliverBy, int venderId, string venderName)
     {
       ProductName = productName;
       Quantity = quantity;

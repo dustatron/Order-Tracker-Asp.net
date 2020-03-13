@@ -14,7 +14,7 @@
         <h5 class="card-title">Vender: @order.VenderName</h5>
         <p class="card-text">Quantity: @order.Quantity</p>
         <p>Deliver By : @order.DeliverBy</p>
-        <a href="#" class="btn btn-info">Edit</a>
+        <a href="/vender/@order.VenderId/order/@order.Id/edit" class="btn btn-info">Edit</a>
         <a href="/vender/@order.VenderId/order/@order.Id/delete" class="btn btn-danger">Delete</a>
       </div>
     </div>

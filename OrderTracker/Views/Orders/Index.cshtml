@@ -1,10 +1,10 @@
 @{
   Layout = "_layout";
 }
-<h2 class="text-center">Orders</h2>
-<div class="card-columns">
+<h2 class="text-center pad-top">Orders</h2>
 @if (@Model.Count > 0)
 {
+  <div class="card-columns">
   @foreach (var order in Model)
   {
     <div class="card" style="width: 20rem;">
@@ -19,9 +19,11 @@
       </div>
     </div>
   }
+  </div>
 }
 else 
 {
-  <p> No orders at this time </p>
+  <div class="jumbotron bg-dark text-white">
+    <h3 class="text-center"> No orders at this time </h3 class="text-center">
+  </div>
 }
-</div>

@@ -44,9 +44,26 @@ namespace OrderTracker.Models
     public static void Update(int id, string name, string address, string decription)
     {
       Vender thisVender = GetVender(id);
+      List<Order> orderList = thisVender.OrdersList;
       thisVender.VenderName = name;
       thisVender.Address = address;
       thisVender.Description = decription;
+    }
+
+    public static void UpdateOrder(int venderId, int orderId, string productName, int quantity, string deliverBy)
+    {
+      Vender thisVender = GetVender(venderId);
+      List<Order> OrdersList = thisVender.OrdersList;
+      for (int i = 0; i < OrdersList.Count; i++)
+      {
+        if (orderId == OrdersList[i].Id)
+        {
+          OrdersList[i].ProductName = productName;
+          OrdersList[i].Quantity = quantity;
+          OrdersList[i].DeliverBy = deliverBy;
+        }
+      }
+
     }
 
     public static void Delete(int id)

@@ -67,6 +67,14 @@ namespace OrderTracker.Models
       vender.OrdersList.Add(order);
     }
 
+    // public static void UpdateOrder(int id, string productName, int quantity, string deliverBy)
+    // {
+    //   Order thisOrder = GetOrder(id);
+    //   thisOrder.ProductName = productName;
+    //   thisOrder.Quantity = quantity;
+    //   thisOrder.DeliverBy = deliverBy;
+    // }
+
     public static void DeleteOrder(int id)
     {
       for (int i = 0; i < MasterOrderList.Count; i++)

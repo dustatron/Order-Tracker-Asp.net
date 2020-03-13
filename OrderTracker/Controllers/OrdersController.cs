@@ -27,6 +27,7 @@ namespace OrderTracker.Controllers
       Order.AddToVender(id, order);
       return RedirectToAction("Index");
     }
+
     [HttpGet("/vender/{id}/orders/show")]
     public ActionResult Show(int id)
     {
@@ -41,12 +42,28 @@ namespace OrderTracker.Controllers
       return View(orderDetails);
     }
 
+    [HttpGet("/vender/{venderId}/order/{orderId}/edit")]
+    public ActionResult Edit(int orderId)
+    {
+      Order thisOrder = Order.GetOrder(orderId);
+      return View(thisOrder);
+    }
+
+    [HttpPost("/vender/{venderId}/order/{orderId}/update")]
+    public ActionResult Update(int venderId, int orderId, string productName, int quantity, string deliverBy)
+    {
+      Order.Update(orderId, productName, quantity, deliverBy);
+      Vender.UpdateOrder(venderId, orderId, productName, quantity, deliverBy);
+      return RedirectToAction("Index");
+    }
+
     [HttpGet("/vender/{venderId}/order/{orderId}/delete")]
     public ActionResult Delete(int venderId, int orderId)
     {
       Vender.DeleteOrder(venderId, orderId);
       return View();
     }
+
 
   }
 }

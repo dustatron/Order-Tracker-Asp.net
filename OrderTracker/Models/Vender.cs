@@ -55,6 +55,22 @@ namespace OrderTracker.Models
       _vendersList.Remove(thisVender);
     }
 
+    public static void DeleteOrder(int venderId, int orderId)
+    {
+      Vender thisVender = GetVender(venderId);
+      List<Order> OrdersList = thisVender.OrdersList;
+      for (int i = 0; i < OrdersList.Count; i++)
+      {
+        if (orderId == OrdersList[i].Id)
+        {
+          OrdersList.RemoveAt(i);
+        }
+      }
+
+      Order.DeleteOrder(orderId);
+
+    }
+
   }
 
 

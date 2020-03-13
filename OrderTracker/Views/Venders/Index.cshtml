@@ -14,16 +14,18 @@
 
       @foreach (var vender in Model)
       {
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 20rem;">
           <img class="card-img-top" src="http://source.unsplash.com/200x100/?@vender.VenderName." alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">@vender.VenderName</h5>
             <p class="card-text">@vender.Description</p>
             <p>Address : @vender.Address</p>
+            <p>Number of Orders : @vender.OrdersList.Count</p>
             <a href="/vender/@vender.Id" class="btn btn-primary">Details</a>
-            <a href="#" class="btn btn-info">Add Order</a>
+            <a href="/vender/@vender.Id/orders/new" class="btn btn-info">Add Order</a>
+            <a href="/vender/@vender.Id/orders/show" class="btn btn-info">All Orders</a>
           </div>
-          </div>
+        </div>
 
       }
       </div>

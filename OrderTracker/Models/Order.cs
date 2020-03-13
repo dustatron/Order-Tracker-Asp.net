@@ -5,7 +5,7 @@ namespace OrderTracker.Models
   public class Order
   {
     public static List<Order> MasterOrderList { get; set; } = new List<Order>(5);
-    public int IdCounter = 0;
+    public static int IdCounter = 0;
 
     public string ProductName { get; set; }
     public int Quantity { get; set; }
@@ -18,6 +18,7 @@ namespace OrderTracker.Models
 
     public Order(string productName, int quantity, string deliverBy, int venderId, string venderName)
     {
+
       ProductName = productName;
       Quantity = quantity;
       DeliverBy = deliverBy;
@@ -59,6 +60,24 @@ namespace OrderTracker.Models
       Order thisOrder = GetOrder(id);
       MasterOrderList.Remove(thisOrder);
     }
+
+    public static void AddToVender(int id, Order order)
+    {
+      Vender vender = Vender.GetVender(id);
+      vender.OrdersList.Add(order);
+    }
+
+    public static void DeleteOrder(int id)
+    {
+      for (int i = 0; i < MasterOrderList.Count; i++)
+      {
+        if (id == MasterOrderList[i].Id)
+        {
+          MasterOrderList.RemoveAt(i);
+        }
+      }
+    }
+
 
   }
 
